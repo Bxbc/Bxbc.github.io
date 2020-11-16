@@ -1,5 +1,88 @@
 define({ "api": [
   {
+    "type": "classmethod",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "SQLhelper.executes",
+    "description": "<p>Execute SQL syntax</p>",
+    "group": "SQLhelper",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "None",
+            "optional": false,
+            "field": "None",
+            "description": "<p>No error massage will be printed</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "SQLhelper",
+    "name": "ClassmethodFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "classmethod",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "SQLhelper.selectone",
+    "description": "<p>Fetch only one result after executing SQL search</p>",
+    "group": "SQLhelper",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "tupple",
+            "optional": false,
+            "field": "tupple-list",
+            "description": "<p>Only one tupple list including search results</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "SQLhelper",
+    "name": "ClassmethodFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "classmethod",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "SQLhelper.selects",
+    "description": "<p>Fetch multiple results after executing SQL search</p>",
+    "group": "SQLhelper",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "tupple",
+            "optional": false,
+            "field": "tupple-list",
+            "description": "<p>Multiple tupple list including search results</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "SQLhelper",
+    "name": "ClassmethodFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "Object",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "SQLhelper",
+    "description": "<p>The multi-thread DB pool which support execute Mysql syntax</p>",
+    "group": "SQLhelper",
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "SQLhelper",
+    "name": "ObjectFilmappStructureViewsSqlpoolPy"
+  },
+  {
     "type": "delete",
     "url": "/ban/delete",
     "title": "deleteBan",
@@ -144,6 +227,161 @@ define({ "api": [
     "filename": "Structure/views/banlist.py",
     "groupTitle": "banlist",
     "name": "PostBanIndex"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/utli/dataCompress.py",
+    "title": "preprocessing",
+    "description": "<p>Remove the punctuations in search keywords</p>",
+    "group": "dataCompress",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "s",
+            "description": "<p>The string that need to be encoded</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "preq",
+            "description": "<p>The list of key words after preprocessing</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/utli/dataCompress.py",
+    "groupTitle": "dataCompress",
+    "name": "FunctionFilmappStructureViewsUtliDatacompressPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/utli/dataCompress.py",
+    "title": "bwtencode",
+    "description": "<p>Encode string with BWT algorithm</p>",
+    "group": "dataCompress",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "s",
+            "description": "<p>The string that need to be encoded</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "str",
+            "optional": false,
+            "field": "L",
+            "description": "<p>The L string after BWT</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/utli/dataCompress.py",
+    "groupTitle": "dataCompress",
+    "name": "FunctionFilmappStructureViewsUtliDatacompressPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/utli/dataCompress.py",
+    "title": "bwtdecode",
+    "description": "<p>Decode string from BWT to original string</p>",
+    "group": "dataCompress",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "s",
+            "description": "<p>The string that need to be encoded</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "sep",
+            "description": "<p>The ascii value of the mark symbol</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "str",
+            "optional": false,
+            "field": "s",
+            "description": "<p>The  original string</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/utli/dataCompress.py",
+    "groupTitle": "dataCompress",
+    "name": "FunctionFilmappStructureViewsUtliDatacompressPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/utli/dataCompress.py",
+    "title": "rle",
+    "description": "<p>Encode string with RLE(run length encoding) algorithm</p>",
+    "group": "dataCompress",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "l",
+            "description": "<p>The string that need to be encoded</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "str",
+            "optional": false,
+            "field": "L",
+            "description": "<p>The L string after RLE</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/utli/dataCompress.py",
+    "groupTitle": "dataCompress",
+    "name": "FunctionFilmappStructureViewsUtliDatacompressPy"
   },
   {
     "type": "POST",
@@ -506,6 +744,842 @@ define({ "api": [
     "name": "PostMovieSearch"
   },
   {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "getwholeInfo",
+    "description": "<p>Get the whole user info by mailbox or username</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "param",
+            "description": "<p>The mailbox or username</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "flag",
+            "description": "<p>Determine the param is mailbox or username</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "tupple",
+            "optional": false,
+            "field": "info",
+            "description": "<p>Return the tupple list contains the info</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "changepasswordbyMail",
+    "description": "<p>Change the user password</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "mail",
+            "description": "<p>The mailbox</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "password",
+            "description": "<p>The newpassword</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>Return 0 when success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "getwishlist",
+    "description": "<p>Get the wishlist</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "username",
+            "description": "<p>The user we want to check his or her wishlist</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "tupple",
+            "optional": false,
+            "field": "wishlist",
+            "description": "<p>The tupple contains moviename, mid, addtime</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "addwishlist",
+    "description": "<p>Add movie into wishlist</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "username",
+            "description": "<p>The user who want to add movie into wishlist</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "mid",
+            "description": "<p>The unique mid of movies</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "moviename",
+            "description": "<p>The name of movie</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>0 means success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "changepasswordbyPassword",
+    "description": "<p>Change the user password</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "usr",
+            "description": "<p>The usrname</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "newkwy",
+            "description": "<p>The newpassword</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>Return 0 when success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "getMid",
+    "description": "<p>Get the mid of movies by its name</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "moviename",
+            "description": "<p>The name of movies</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "mid",
+            "description": "<p>The unique mid of movie</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "getMname",
+    "description": "<p>Get the moviename by its mid</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "mid",
+            "description": "<p>The unique mid of movies</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "str",
+            "optional": false,
+            "field": "moviename",
+            "description": "<p>The moviename</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "getMimage",
+    "description": "<p>Get the poster of movies</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "mid",
+            "description": "<p>The unique mid of movies</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "link",
+            "optional": false,
+            "field": "url",
+            "description": "<p>The image link of this movie</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "getReviews",
+    "description": "<p>Get the reviews for this movie</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "mid",
+            "description": "<p>The unique mid of movies</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "count",
+            "description": "<p>How many reviews we want to get</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "usr",
+            "description": "<p>The current username</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "reviews",
+            "description": "<p>The list contain reviews for this movie</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "addReviews",
+    "description": "<p>Insert user review for movie into DB</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "uid",
+            "description": "<p>The unique uid of users</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "mid",
+            "description": "<p>The unique mid of movies</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "rate",
+            "description": "<p>The rate for this movie</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "title",
+            "description": "<p>The review title</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "content",
+            "description": "<p>The review content</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>0 means success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "getReviewsbyuid",
+    "description": "<p>Get the reviews by uid</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "uid",
+            "description": "<p>The unique uid of users</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "count",
+            "description": "<p>How many results we want to get</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "reviews",
+            "description": "<p>Conatin username,content,rate,moviename</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "getTaglist",
+    "description": "<p>Get the movies info according to different tag order by time,rate,count</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "tag",
+            "description": "<p>Which kind of movies we want to get</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "num",
+            "description": "<p>How many movies we want to get</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "order",
+            "description": "<p>The sequence of movies to show, default is time</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "movies",
+            "description": "<p>Contains moviename,rate,time,count,post</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "insertBuser",
+    "description": "<p>Insert data into banlist</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "host",
+            "description": "<p>The current user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "banname",
+            "description": "<p>The name of user that this current user want to ban</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>0 means success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "deleteBuser",
+    "description": "<p>Remove user from current user's banlist</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "host",
+            "description": "<p>The current user</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "banname",
+            "description": "<p>The user will be removed from banlist</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>0 means success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "getmidIndex",
+    "description": "<p>Get the relative movies' mids according to the key words</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "words",
+            "description": "<p>The key words to search relative moves</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "set",
+            "optional": false,
+            "field": "Movie-set",
+            "description": "<p>The set contains mids</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "insertUser",
+    "description": "<p>Insert user info into DB</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "list",
+            "optional": false,
+            "field": "The",
+            "description": "<p>list contains username, password, gender, DoB, mailbox, hobby</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "None",
+            "optional": false,
+            "field": "None",
+            "description": "<p>No error massage will be printed</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "checkSame",
+    "description": "<p>Check whether the mail or username have been registered</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "mail",
+            "description": "<p>The mailbox</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "usrname",
+            "description": "<p>The username</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Boolean-Value",
+            "description": "<p>False: has been registered, True: has not been registered</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "checkPassword",
+    "description": "<p>Get the password by mailbox or username</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "param",
+            "description": "<p>The mailbox or username</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "flag",
+            "description": "<p>Determine the param is mailbox or username</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "str",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Return the password</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "gremoveWishlist",
+    "description": "<p>Remove movies from user's wishlist</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "username",
+            "description": "<p>The user who want to remove movies from his or her wishlist</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "moviename",
+            "description": "<p>The name of movie will be removed</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>0 means success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
     "type": "DELET",
     "url": "/user/logout",
     "title": "logout",
@@ -799,7 +1873,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "json",
             "optional": false,
-            "field": "DoB",
+            "field": "birth",
             "description": "<p>The birthday of user</p>"
           },
           {
@@ -887,6 +1961,392 @@ define({ "api": [
     "filename": "Structure/views/user.py",
     "groupTitle": "user",
     "name": "PostUserReviews"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "getIMDBreviews",
+    "description": "<p>Get user reviews of movie on IMDB</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "url",
+            "description": "<p>The url of the webpage that we want to collect data from</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "path",
+            "description": "<p>The path of xls file which contains movies main page code on IMDB</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "content",
+            "description": "<p>The list contains the reviews info on IMDB</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "makeTable",
+    "description": "<p>Save data into xls file</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "list",
+            "optional": false,
+            "field": "content",
+            "description": "<p>The list of data</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "path",
+            "description": "<p>The path we want save the xls file in</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>0 means success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "testip",
+    "description": "<p>Test which proxy ip in pool can be used</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "list",
+            "optional": false,
+            "field": "ipp",
+            "description": "<p>The list contains proxy ips to be test</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "ipp",
+            "description": "<p>The list contains the proxy ip that can work well</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "getPage",
+    "description": "<p>Get the html page according to the url</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "url",
+            "description": "<p>The url of the webpage that we want to collect data from</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "html",
+            "optional": false,
+            "field": "page",
+            "description": "<p>The html page we get from url</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "trans",
+    "description": "<p>Translate the words from a language to another language</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "oringin",
+            "description": "<p>The words need to be translated</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "sc",
+            "description": "<p>Source language type,default: Chinese</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "dt",
+            "description": "<p>target language type,default: Englisg</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "str",
+            "optional": false,
+            "field": "text",
+            "description": "<p>The translation results</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "withcoockie",
+    "description": "<p>Get html page according the url with fake cookie</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "url",
+            "description": "<p>The url of the webpage that we want to collect data from</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "dict",
+            "optional": false,
+            "field": "cookie",
+            "description": "<p>The fake cookie we generated</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "html",
+            "optional": false,
+            "field": "page",
+            "description": "<p>The html page we get from url</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "doubanLogin",
+    "description": "<p>Simulate the behaviour of browser login www.douban.com</p>",
+    "group": "webspider",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>0 when success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "getDouban",
+    "description": "<p>Get the movie information from WWW.douban.com and save them in xls file</p>",
+    "group": "webspider",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "str",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>print success massgae</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "imdb",
+    "description": "<p>Get basic movie info from www.imdb.com</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "url",
+            "description": "<p>The url of the webpage that we want to collect data from</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "content",
+            "description": "<p>The list contains the basic movie info on IMDB</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "imdbDetail",
+    "description": "<p>Get more details movie info from www.imdb.com like genres,poster,directors,actors,brief</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "url",
+            "description": "<p>The url of the webpage that we want to collect data from</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "path",
+            "description": "<p>The path of xls file which contains movies main page code on IMDB</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "content",
+            "description": "<p>The list contains the movie details on IMDB</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
   },
   {
     "type": "DELETE",
