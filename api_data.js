@@ -83,57 +83,6 @@ define({ "api": [
     "name": "ObjectFilmappStructureViewsSqlpoolPy"
   },
   {
-    "type": "delete",
-    "url": "/ban/delete",
-    "title": "deleteBan",
-    "group": "banlist",
-    "description": "<p>Delete the banname from user's banlist</p>",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "json",
-            "optional": false,
-            "field": "hostname",
-            "description": "<p>The name of user that login app now</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "json",
-            "optional": false,
-            "field": "banname",
-            "description": "<p>The username that the user want remove from his of her banlist</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "json",
-            "optional": false,
-            "field": "msg",
-            "description": "<p>Including execution information</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"msg\":\"Sucessful delete from banlist\",\n    \"error\":\"none\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "Structure/views/banlist.py",
-    "groupTitle": "banlist",
-    "name": "DeleteBanDelete"
-  },
-  {
     "type": "POST",
     "url": "/ban/add",
     "title": "add2Ban",
@@ -183,6 +132,57 @@ define({ "api": [
     "filename": "Structure/views/banlist.py",
     "groupTitle": "banlist",
     "name": "PostBanAdd"
+  },
+  {
+    "type": "POST",
+    "url": "/ban/delete",
+    "title": "deleteBan",
+    "group": "banlist",
+    "description": "<p>Delete the banname from user's banlist</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "json",
+            "optional": false,
+            "field": "hostname",
+            "description": "<p>The name of user that login app now</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "json",
+            "optional": false,
+            "field": "banname",
+            "description": "<p>The username that the user want remove from his of her banlist</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>Including execution information</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"msg\":\"Sucessful delete from banlist\",\n    \"error\":\"none\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/banlist.py",
+    "groupTitle": "banlist",
+    "name": "PostBanDelete"
   },
   {
     "type": "POST",
@@ -2349,37 +2349,6 @@ define({ "api": [
     "name": "FunctionFilmappStructureGetdataWebspiderPy"
   },
   {
-    "type": "DELETE",
-    "url": "/wish/delete",
-    "title": "delete",
-    "description": "<p>Delete the movie from user's wish list</p>",
-    "group": "wish",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "json",
-            "optional": false,
-            "field": "msg",
-            "description": "<p>Including execution information</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"msg\":\"successful delete\",\n    \"error\":\"none\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "Structure/views/wishlist.py",
-    "groupTitle": "wish",
-    "name": "DeleteWishDelete"
-  },
-  {
     "type": "GET",
     "url": "/wish/add",
     "title": "add",
@@ -2483,5 +2452,36 @@ define({ "api": [
     "filename": "Structure/views/wishlist.py",
     "groupTitle": "wish",
     "name": "GetWishOthers"
+  },
+  {
+    "type": "POST",
+    "url": "/wish/delete",
+    "title": "delete",
+    "description": "<p>Delete the movie from user's wish list</p>",
+    "group": "wish",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "msg",
+            "description": "<p>Including execution information</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"msg\":\"successful delete\",\n    \"error\":\"none\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/wishlist.py",
+    "groupTitle": "wish",
+    "name": "PostWishDelete"
   }
 ] });
