@@ -598,6 +598,37 @@ define({ "api": [
     "name": "GetMovieNewest"
   },
   {
+    "type": "GET",
+    "url": "/movie/recommend",
+    "title": "getrecom",
+    "description": "<p>Get the reccommend by user's history click</p>",
+    "group": "search",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "mids",
+            "description": "<p>List of movies' mids</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"mids\": [\"\"]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/search.py",
+    "groupTitle": "search",
+    "name": "GetMovieRecommend"
+  },
+  {
     "type": "POST",
     "url": "/movie/details",
     "title": "shows",
@@ -1413,6 +1444,87 @@ define({ "api": [
   {
     "type": "function",
     "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "trackClick",
+    "description": "<p>Track the click on movie page from users to improve recommendation algorthm</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "uid",
+            "description": "<p>The unique uid of users</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "banname",
+            "description": "<p>The unique mid of movies</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>0 means success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
+    "title": "getClick(uid)",
+    "description": "<p>Get the click history of user to execute recommendation algorithm</p>",
+    "group": "sqlpool",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "uid",
+            "description": "<p>The unique uid of users</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "click-info",
+            "description": "<p>Contains uid,mid,click-time,click-count</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/sqlPool.py",
+    "groupTitle": "sqlpool",
+    "name": "FunctionFilmappStructureViewsSqlpoolPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/views/sqlPool.py",
     "title": "insertUser",
     "description": "<p>Insert user info into DB</p>",
     "group": "sqlpool",
@@ -1965,131 +2077,6 @@ define({ "api": [
   {
     "type": "function",
     "url": "./filmApp/Structure/getData/webspider.py",
-    "title": "getIMDBreviews",
-    "description": "<p>Get user reviews of movie on IMDB</p>",
-    "group": "webspider",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "str",
-            "optional": false,
-            "field": "url",
-            "description": "<p>The url of the webpage that we want to collect data from</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "str",
-            "optional": false,
-            "field": "path",
-            "description": "<p>The path of xls file which contains movies main page code on IMDB</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "list",
-            "optional": false,
-            "field": "content",
-            "description": "<p>The list contains the reviews info on IMDB</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "Structure/getData/webspider.py",
-    "groupTitle": "webspider",
-    "name": "FunctionFilmappStructureGetdataWebspiderPy"
-  },
-  {
-    "type": "function",
-    "url": "./filmApp/Structure/getData/webspider.py",
-    "title": "makeTable",
-    "description": "<p>Save data into xls file</p>",
-    "group": "webspider",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "list",
-            "optional": false,
-            "field": "content",
-            "description": "<p>The list of data</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "str",
-            "optional": false,
-            "field": "path",
-            "description": "<p>The path we want save the xls file in</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "int",
-            "optional": false,
-            "field": "int-value",
-            "description": "<p>0 means success</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "Structure/getData/webspider.py",
-    "groupTitle": "webspider",
-    "name": "FunctionFilmappStructureGetdataWebspiderPy"
-  },
-  {
-    "type": "function",
-    "url": "./filmApp/Structure/getData/webspider.py",
-    "title": "testip",
-    "description": "<p>Test which proxy ip in pool can be used</p>",
-    "group": "webspider",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "list",
-            "optional": false,
-            "field": "ipp",
-            "description": "<p>The list contains proxy ips to be test</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "list",
-            "optional": false,
-            "field": "ipp",
-            "description": "<p>The list contains the proxy ip that can work well</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "Structure/getData/webspider.py",
-    "groupTitle": "webspider",
-    "name": "FunctionFilmappStructureGetdataWebspiderPy"
-  },
-  {
-    "type": "function",
-    "url": "./filmApp/Structure/getData/webspider.py",
     "title": "getPage",
     "description": "<p>Get the html page according to the url</p>",
     "group": "webspider",
@@ -2102,6 +2089,50 @@ define({ "api": [
             "optional": false,
             "field": "url",
             "description": "<p>The url of the webpage that we want to collect data from</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "html",
+            "optional": false,
+            "field": "page",
+            "description": "<p>The html page we get from url</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "withcoockie",
+    "description": "<p>Get html page according the url with fake cookie</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "url",
+            "description": "<p>The url of the webpage that we want to collect data from</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "dict",
+            "optional": false,
+            "field": "cookie",
+            "description": "<p>The fake cookie we generated</p>"
           }
         ]
       }
@@ -2166,50 +2197,6 @@ define({ "api": [
             "optional": false,
             "field": "text",
             "description": "<p>The translation results</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "Structure/getData/webspider.py",
-    "groupTitle": "webspider",
-    "name": "FunctionFilmappStructureGetdataWebspiderPy"
-  },
-  {
-    "type": "function",
-    "url": "./filmApp/Structure/getData/webspider.py",
-    "title": "withcoockie",
-    "description": "<p>Get html page according the url with fake cookie</p>",
-    "group": "webspider",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "str",
-            "optional": false,
-            "field": "url",
-            "description": "<p>The url of the webpage that we want to collect data from</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "dict",
-            "optional": false,
-            "field": "cookie",
-            "description": "<p>The fake cookie we generated</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "html",
-            "optional": false,
-            "field": "page",
-            "description": "<p>The html page we get from url</p>"
           }
         ]
       }
@@ -2349,6 +2336,131 @@ define({ "api": [
     "name": "FunctionFilmappStructureGetdataWebspiderPy"
   },
   {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "getIMDBreviews",
+    "description": "<p>Get user reviews of movie on IMDB</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "url",
+            "description": "<p>The url of the webpage that we want to collect data from</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "path",
+            "description": "<p>The path of xls file which contains movies main page code on IMDB</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "content",
+            "description": "<p>The list contains the reviews info on IMDB</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "makeTable",
+    "description": "<p>Save data into xls file</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "list",
+            "optional": false,
+            "field": "content",
+            "description": "<p>The list of data</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "str",
+            "optional": false,
+            "field": "path",
+            "description": "<p>The path we want save the xls file in</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "int",
+            "optional": false,
+            "field": "int-value",
+            "description": "<p>0 means success</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
+    "type": "function",
+    "url": "./filmApp/Structure/getData/webspider.py",
+    "title": "testip",
+    "description": "<p>Test which proxy ip in pool can be used</p>",
+    "group": "webspider",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "list",
+            "optional": false,
+            "field": "ipp",
+            "description": "<p>The list contains proxy ips to be test</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "list",
+            "optional": false,
+            "field": "ipp",
+            "description": "<p>The list contains the proxy ip that can work well</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "Structure/getData/webspider.py",
+    "groupTitle": "webspider",
+    "name": "FunctionFilmappStructureGetdataWebspiderPy"
+  },
+  {
     "type": "GET",
     "url": "/wish/add",
     "title": "add",
@@ -2423,37 +2535,6 @@ define({ "api": [
     "name": "GetWishIndex"
   },
   {
-    "type": "GET",
-    "url": "/wish/others",
-    "title": "index",
-    "description": "<p>To get other's wishlist</p>",
-    "group": "wish",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "json",
-            "optional": false,
-            "field": "json",
-            "description": "<p>Including list of moviename, mid, addtime</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"username\":[\"\"],\n    \"mid\":[\"\"],\n    \"time\":[\"\"]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "Structure/views/wishlist.py",
-    "groupTitle": "wish",
-    "name": "GetWishOthers"
-  },
-  {
     "type": "POST",
     "url": "/wish/delete",
     "title": "delete",
@@ -2483,5 +2564,36 @@ define({ "api": [
     "filename": "Structure/views/wishlist.py",
     "groupTitle": "wish",
     "name": "PostWishDelete"
+  },
+  {
+    "type": "POST",
+    "url": "/wish/others",
+    "title": "index",
+    "description": "<p>To get other's wishlist</p>",
+    "group": "wish",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "json",
+            "optional": false,
+            "field": "json",
+            "description": "<p>Including list of moviename, mid, addtime</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"username\":[\"\"],\n    \"mid\":[\"\"],\n    \"time\":[\"\"]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "Structure/views/wishlist.py",
+    "groupTitle": "wish",
+    "name": "PostWishOthers"
   }
 ] });
