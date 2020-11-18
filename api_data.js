@@ -1650,7 +1650,7 @@ define({ "api": [
   {
     "type": "function",
     "url": "./filmApp/Structure/views/sqlPool.py",
-    "title": "gremoveWishlist",
+    "title": "removeWishlist",
     "description": "<p>Remove movies from user's wishlist</p>",
     "group": "sqlpool",
     "parameter": {
