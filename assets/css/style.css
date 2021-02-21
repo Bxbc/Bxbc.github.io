@@ -172,7 +172,7 @@ h1, h2, h3, h4, h5, h6{
 
 #header .secondary-slogan{
 	font-size: 1.6em;
-	color: rgba(255,255,255,.5);
+	color: #e8e8e8;
 	line-height: 1em;
 	font-family: 'Alegreya SC';
 }
